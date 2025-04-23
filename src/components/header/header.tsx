@@ -1,6 +1,8 @@
 'use client';
 
+import { Theme } from '@/enums';
 import { useAppSelector } from '@/hooks';
+import { useThemeMode } from '@/providers';
 import { closeDrawer, openDrawer } from '@/store/navigation-slice';
 import { Box, useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
@@ -12,6 +14,7 @@ const Header = () => {
 	const dispatch = useDispatch();
 	const isDrawerOpened = useAppSelector(state => state.navigation.isDrawerOpened);
 	const theme = useTheme();
+	const { mode, setMode } = useThemeMode();
 
 	const onDrawerClose = () => {
 		dispatch(closeDrawer());
@@ -19,6 +22,10 @@ const Header = () => {
 
 	const onDrawerOpen = () => {
 		dispatch(openDrawer());
+	};
+
+	const toggleTheme = () => {
+		setMode(mode === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
 	};
 	return (
 		<header>
@@ -37,7 +44,11 @@ const Header = () => {
 						</Box>
 					</Box>
 
-					<TouchableIcon name='theme' sx={{ color: theme.palette.grey[100] }} />
+					<TouchableIcon
+						onClick={toggleTheme}
+						name='theme'
+						sx={{ color: theme.palette.grey[100] }}
+					/>
 				</BaseContainer>
 			</Box>
 

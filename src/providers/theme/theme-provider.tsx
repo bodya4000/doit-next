@@ -1,20 +1,35 @@
 'use client';
 
+import { Theme as AppTheme } from '@/enums';
 import { ThemeProvider } from '@mui/material';
-import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
+import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { darkTheme, lightTheme } from '.';
 
 type ThemeContextType = {
-	mode: 'light' | 'dark';
-	setMode: (mode: 'light' | 'dark') => void;
+	mode: AppTheme;
+	setMode: (mode: AppTheme) => void;
 };
 
 const ThemeModeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const AppThemeProvider = ({ children }: { children: ReactNode }) => {
-	const [mode, setMode] = useState<'light' | 'dark'>('light');
+	const [mode, setModeState] = useState<AppTheme>(AppTheme.LIGHT);
 
-	const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
+	useEffect(() => {
+		try {
+			const saved = localStorage.getItem('theme');
+			if (saved === AppTheme.DARK || saved === AppTheme.LIGHT) {
+				setModeState(saved as AppTheme);
+			}
+		} catch {}
+	}, []);
+
+	const setMode = (newMode: AppTheme) => {
+		setModeState(newMode);
+		localStorage.setItem('theme', newMode);
+	};
+
+	const theme = useMemo(() => (mode === AppTheme.LIGHT ? lightTheme : darkTheme), [mode]);
 
 	return (
 		<ThemeModeContext.Provider value={{ mode, setMode }}>
@@ -25,5 +40,6 @@ export const AppThemeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useThemeMode = () => {
 	const context = useContext(ThemeModeContext);
+	if (!context) throw new Error('useThemeMode must be used inside AppThemeProvider');
 	return context;
 };

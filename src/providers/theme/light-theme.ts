@@ -29,32 +29,4 @@ export const lightTheme = createTheme({
 			fontWeight: 600,
 		},
 	},
-	components: {
-		MuiCard: {
-			styleOverrides: {
-				root: {
-					backgroundColor: '#ffffff',
-					borderRadius: 12,
-					boxShadow: '0px 3px 6px rgba(0,0,0,0.08)',
-				},
-			},
-		},
-		MuiButton: {
-			styleOverrides: {
-				root: {
-					borderRadius: 8,
-				},
-			},
-		},
-		MuiOutlinedInput: {
-			styleOverrides: {
-				root: {
-					backgroundColor: '#fefefe',
-				},
-				notchedOutline: {
-					borderColor: '#ccc',
-				},
-			},
-		},
-	},
 });
