@@ -3,6 +3,7 @@
 import { Theme } from '@/enums';
 import { useAppSelector } from '@/hooks';
 import { useThemeMode } from '@/providers';
+import { colors } from '@/providers/theme';
 import { closeDrawer, openDrawer } from '@/store/navigation-slice';
 import { Box, useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
@@ -29,7 +30,7 @@ const Header = () => {
 	};
 	return (
 		<header>
-			<Box sx={{ backgroundColor: theme.palette.primary.main }}>
+			<Box sx={{ backgroundColor: colors.blue }}>
 				<BaseContainer
 					sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row' }}
 				>
@@ -37,9 +38,9 @@ const Header = () => {
 						<TouchableIcon
 							onClick={onDrawerOpen}
 							name='menu'
-							sx={{ color: theme.palette.grey[100] }}
+							sx={{ color: colors.white }}
 						/>
-						<Box component='span' sx={{ fontWeight: 'bold', color: theme.palette.grey[100] }}>
+						<Box component='span' sx={{ fontWeight: 'bold', color: colors.white }}>
 							DOiT MVP
 						</Box>
 					</Box>

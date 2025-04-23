@@ -11,7 +11,9 @@ export default function PageContainer({ children, sx, ...rest }: ContainerProps)
 				py: { xs: 2, sm: 3 },
 				maxWidth: '1450px',
 				width: '100%',
+				height:'100%',
 				mx: 'auto',
+				bgcolor: 'background.default',
 				...sx,
 			}}
 			{...rest}
