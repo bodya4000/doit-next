@@ -3,6 +3,7 @@
 import { Box, useTheme } from '@mui/material';
 import { BaseContainer } from '../containers';
 import { TouchableIcon } from '../icons';
+import SideDrawer from './side-drawer/side-drawer';
 
 const Header = () => {
 	const theme = useTheme();
@@ -23,6 +24,8 @@ const Header = () => {
 					<TouchableIcon name='theme' sx={{ color: theme.palette.grey[100] }} />
 				</BaseContainer>
 			</Box>
+
+			<SideDrawer open={true} onClose={() => {}} />
 		</header>
 	);
 };
