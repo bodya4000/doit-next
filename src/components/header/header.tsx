@@ -1,13 +1,25 @@
 'use client';
 
+import { useAppSelector } from '@/hooks';
+import { closeDrawer, openDrawer } from '@/store/navigation-slice';
 import { Box, useTheme } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { SideDrawer } from '.';
 import { BaseContainer } from '../containers';
 import { TouchableIcon } from '../icons';
-import SideDrawer from './side-drawer/side-drawer';
 
 const Header = () => {
+	const dispatch = useDispatch();
+	const isDrawerOpened = useAppSelector(state => state.navigation.isDrawerOpened);
 	const theme = useTheme();
 
+	const onDrawerClose = () => {
+		dispatch(closeDrawer());
+	};
+
+	const onDrawerOpen = () => {
+		dispatch(openDrawer());
+	};
 	return (
 		<header>
 			<Box sx={{ backgroundColor: theme.palette.primary.main }}>
@@ -15,7 +27,11 @@ const Header = () => {
 					sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row' }}
 				>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-						<TouchableIcon name='menu' sx={{ color: theme.palette.grey[100] }} />
+						<TouchableIcon
+							onClick={onDrawerOpen}
+							name='menu'
+							sx={{ color: theme.palette.grey[100] }}
+						/>
 						<Box component='span' sx={{ fontWeight: 'bold', color: theme.palette.grey[100] }}>
 							DOiT MVP
 						</Box>
@@ -25,7 +41,7 @@ const Header = () => {
 				</BaseContainer>
 			</Box>
 
-			<SideDrawer open={true} onClose={() => {}} />
+			<SideDrawer open={isDrawerOpened} onClose={onDrawerClose} />
 		</header>
 	);
 };
