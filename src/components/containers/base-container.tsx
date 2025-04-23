@@ -1,19 +1,17 @@
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
-export function BaseContainer({ children }: { children: React.ReactNode }) {
+export default function BaseContainer({ children }: { children?: React.ReactNode }) {
 	return (
 		<Container
 			maxWidth={false}
+			disableGutters
 			sx={{
-				px: {
-					xs: 2,
-					sm: 4,
-					md: 6,
-					lg: 10,
-				},
+				p: 0,
+				m: 0,
+				width: '100%',
 			}}
 		>
-			{children}
+			<Box sx={{ px: 4, py: 2 }}>{children}</Box>
 		</Container>
 	);
 }
