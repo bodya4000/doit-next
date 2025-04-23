@@ -1,6 +1,11 @@
-import { Box, Container } from '@mui/material';
+import { Box, Container, SxProps, Theme } from '@mui/material';
 
-export default function BaseContainer({ children }: { children?: React.ReactNode }) {
+interface BaseContainerProps {
+	children?: React.ReactNode;
+	sx?: SxProps<Theme>;
+}
+
+export default function BaseContainer({ children, sx }: BaseContainerProps) {
 	return (
 		<Container
 			maxWidth={false}
@@ -11,7 +16,15 @@ export default function BaseContainer({ children }: { children?: React.ReactNode
 				width: '100%',
 			}}
 		>
-			<Box sx={{ px: 4, py: 2 }}>{children}</Box>
+			<Box
+				sx={{
+					px: 4,
+					py: 2,
+					...sx,
+				}}
+			>
+				{children}
+			</Box>
 		</Container>
 	);
 }
