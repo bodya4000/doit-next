@@ -1,16 +1,19 @@
 'use client';
 
 import { PrimaryButton, PrimaryTransparentButton } from '@/components';
+import { useThemeMode } from '@/providers';
 import { Typography, useTheme } from '@mui/material';
 import { ButtonContainer, CenteredContent, GradientSection, OuterWrapper } from '.';
 
 const Welcome = () => {
 	const theme = useTheme();
+	const { mode } = useThemeMode();
 	return (
 		<OuterWrapper>
-			<GradientSection>
+			<GradientSection mode={mode}>
 				<CenteredContent>
 					<Typography
+						color={theme.palette.text.primary}
 						fontWeight={300}
 						align='center'
 						sx={{ fontSize: { xs: 20, sm: 28, md: 36, lg: 42 } }}

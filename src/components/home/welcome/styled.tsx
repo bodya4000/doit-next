@@ -1,3 +1,4 @@
+import { Theme } from '@/enums';
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -6,10 +7,20 @@ export const OuterWrapper = styled(Box)({
 	justifyContent: 'center',
 });
 
-export const GradientSection = styled(Box)(({ theme }) => ({
+interface GradientSectionProps {
+	mode?: Theme;
+}
+
+export const GradientSection = styled(Box, {
+	shouldForwardProp: prop => prop !== 'mode',
+})<GradientSectionProps>(({ theme, mode }) => ({
 	display: 'inline-block',
-	background: 'linear-gradient(180deg, #e0f2ff 0%, #f5e6f7 100%)',
 	padding: theme.spacing(1, 2),
+	borderRadius: 10,
+	background:
+		mode === Theme.DARK
+			? 'linear-gradient(90deg, #1c2a39 0%, #431a9e 100%)'
+			: 'linear-gradient(180deg, #e0f2ff 0%, #f5e6f7 100%)',
 }));
 
 export const CenteredContent = styled(Box)(({ theme }) => ({
