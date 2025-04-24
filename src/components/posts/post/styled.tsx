@@ -2,16 +2,18 @@ import { colors as appColors } from '@/providers/theme/colors';
 import { Box, colors, Grid, Skeleton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+interface PostWrapperProps {
+	detail?: string;
+}
+
 export const PostCard = styled(Grid)(({}) => ({
 	padding: 8,
 	boxSizing: 'border-box',
 	display: 'flex',
 	justifyContent: 'center',
-	minHeight: 300,
-	minWidth: 424,
 }));
 
-export const PostWrapper = styled(Box)(({ theme }) => ({
+export const PostWrapper = styled(Box)<PostWrapperProps>(({ theme, detail }) => ({
 	boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.25)',
 	borderRadius: 5,
 	padding: theme.spacing(2),
@@ -19,7 +21,10 @@ export const PostWrapper = styled(Box)(({ theme }) => ({
 	flexDirection: 'column',
 	gap: theme.spacing(2),
 	width: '100%',
-	maxWidth: 400,
+	maxWidth: detail ? '100%' : 400,
+	minHeight: detail ? '100%' : 200,
+	minWidth: detail ? '100%' : 400,
+	maxHeight: detail ? '100%' : 300,
 
 	[theme.breakpoints.down('sm')]: {
 		padding: theme.spacing(1.5),
@@ -27,9 +32,9 @@ export const PostWrapper = styled(Box)(({ theme }) => ({
 	},
 }));
 
-export const PostHeader = styled(Box)(({ theme }) => ({
+export const PostHeader = styled(Box)<PostWrapperProps>(({ theme, detail }) => ({
 	display: 'flex',
-	justifyContent: 'space-between',
+	justifyContent: detail ? 'flex-start' : 'space-between',
 	alignItems: 'center',
 	gap: theme.spacing(1.5),
 }));
@@ -40,7 +45,6 @@ export const PostAvatar = styled(Box)(({ theme }) => ({
 	borderRadius: '50%',
 	backgroundColor: colors.grey[500],
 	flexShrink: 0,
-
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
@@ -83,7 +87,7 @@ export const SkeletonAvatar = styled(Skeleton)(({ theme }) => ({
 	width: 72,
 	height: 72,
 	borderRadius: '50%',
-
+	flexShrink: 0,
 	[theme.breakpoints.down('sm')]: {
 		width: 60,
 		height: 60,
@@ -91,5 +95,7 @@ export const SkeletonAvatar = styled(Skeleton)(({ theme }) => ({
 }));
 
 export const SkeletonLine = styled(Skeleton)(({ theme }) => ({
+	height: 16,
 	borderRadius: theme.spacing(1),
+	width: '100%',
 }));

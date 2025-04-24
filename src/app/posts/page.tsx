@@ -1,7 +1,6 @@
 'use client';
 
-import { Header, PageContainer, Post, PostSearch, PostSpeedDial } from '@/components';
-import { PostSkeleton } from '@/components/posts/post';
+import { Header, PageContainer, Post, PostSearch, PostSkeleton, PostSpeedDial } from '@/components';
 import { usePosts } from '@/hooks';
 import { Box } from '@mui/material';
 
@@ -18,6 +17,7 @@ export default function Posts() {
 					sx={{
 						display: 'flex',
 						flexWrap: 'wrap',
+						justifyContent: 'center',
 					}}
 				>
 					{isLoading && Array.from({ length: 15 }).map((_, i) => <PostSkeleton key={i} />)}

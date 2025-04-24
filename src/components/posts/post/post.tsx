@@ -3,16 +3,22 @@
 import { TouchableOpacity } from '@/components/buttons';
 import { BinIcon, Icon } from '@/components/icons';
 import { Box, useTheme } from '@mui/material';
+import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import { PostAvatar, PostCard, PostHeader, PostText, PostTitle, PostWrapper } from '.';
 
 interface Props {
+	id: number;
 	title: string;
 	body: string;
 }
 
-const Post = ({ title, body }: Props) => {
+const Post = ({ id, title, body }: Props) => {
 	const theme = useTheme();
+	const router = useRouter();
+	const onCardClick = () => {
+		router.push('/posts/' + id);
+	};
 
 	return (
 		<PostCard>
@@ -21,13 +27,14 @@ const Post = ({ title, body }: Props) => {
 					<PostAvatar>{title[0].toUpperCase()}</PostAvatar>
 					<PostTitle>{title}</PostTitle>
 
-					<TouchableOpacity sx={{ alignItems: 'flex-start' }}>
+					<TouchableOpacity onClick={() => {}} sx={{ alignItems: 'flex-start' }}>
 						<BinIcon />
 					</TouchableOpacity>
 				</PostHeader>
 				<PostText>{body}</PostText>
 
 				<TouchableOpacity
+					onClick={onCardClick}
 					sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
 				>
 					<Box
