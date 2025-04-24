@@ -1,6 +1,7 @@
 import AddIcon from '@mui/icons-material/Add';
 import ArrowRight from '@mui/icons-material/ArrowForward';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+import ChatIcon from '@mui/icons-material/Chat';
 import Delete from '@mui/icons-material/Delete';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import Home from '@mui/icons-material/Home';
@@ -20,7 +21,8 @@ export type IconName =
 	| 'plus'
 	| 'delete'
 	| 'arrow-right'
-	| 'search';
+	| 'search'
+	| 'chat';
 
 const iconMap: Record<IconName, (props: SvgIconProps) => JSX.Element> = {
 	menu: props => <MenuIcon {...props} />,
@@ -31,6 +33,7 @@ const iconMap: Record<IconName, (props: SvgIconProps) => JSX.Element> = {
 	plus: props => <AddIcon {...props} />,
 	delete: props => <Delete {...props} />,
 	search: props => <SearchIcon {...props} />,
+	chat: props => <ChatIcon {...props} />,
 	'arrow-right': props => <ArrowRight {...props} />,
 };
 

@@ -7,11 +7,16 @@ import { colors } from '@/providers/theme';
 import { closeDrawer, openDrawer } from '@/store/navigation-slice';
 import { Box, useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { SideDrawer } from '.';
+import { CommentButton, SideDrawer } from '.';
 import { BaseContainer } from '../containers';
 import { TouchableIcon } from '../icons';
 
-const Header = () => {
+interface Props {
+	title?: string;
+	comments?: boolean;
+}
+
+const Header = ({ title, comments }: Props) => {
 	const dispatch = useDispatch();
 	const isDrawerOpened = useAppSelector(state => state.navigation.isDrawerOpened);
 	const theme = useTheme();
@@ -35,21 +40,21 @@ const Header = () => {
 					sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row' }}
 				>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-						<TouchableIcon
-							onClick={onDrawerOpen}
-							name='menu'
-							sx={{ color: colors.white }}
-						/>
+						<TouchableIcon onClick={onDrawerOpen} name='menu' sx={{ color: colors.white }} />
 						<Box component='span' sx={{ fontWeight: 'bold', color: colors.white }}>
-							DOiT MVP
+							{title ? title : 'DOiT MVP'}
 						</Box>
 					</Box>
 
-					<TouchableIcon
-						onClick={toggleTheme}
-						name='theme'
-						sx={{ color: theme.palette.grey[100] }}
-					/>
+					<Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+						<TouchableIcon
+							onClick={toggleTheme}
+							name='theme'
+							sx={{ color: theme.palette.grey[100] }}
+						/>
+
+						{comments && <CommentButton />}
+					</Box>
 				</BaseContainer>
 			</Box>
 
