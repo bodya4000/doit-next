@@ -1,3 +1,4 @@
+import { colors as appColors } from '@/providers/theme/colors';
 import { Box, colors, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -47,6 +48,12 @@ export const PostAvatar = styled(Box)(({ theme }) => ({
 	backgroundColor: colors.grey[500],
 	flexShrink: 0,
 
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
+	color: appColors.white,
+	fontSize: 22,
+
 	[theme.breakpoints.down('sm')]: {
 		width: 60,
 		height: 60,
@@ -70,6 +77,7 @@ export const PostTitle = styled(Box)(({ theme }) => ({
 }));
 
 export const PostText = styled(Typography)(({ theme }) => ({
+	flex:1,
 	fontSize: '0.875rem',
 	lineHeight: 1.6,
 	color: theme.palette.text.primary,

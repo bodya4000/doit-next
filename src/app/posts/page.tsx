@@ -1,9 +1,15 @@
 'use client';
 
 import { Header, PageContainer, Post } from '@/components';
+import { usePosts } from '@/hooks';
 import { Box } from '@mui/material';
 
 export default function Posts() {
+	const { data } = usePosts();
+	console.log(data);
+	console.log(data);
+	
+	
 	return (
 		<>
 			<Header />
@@ -14,9 +20,10 @@ export default function Posts() {
 						flexWrap: 'wrap',
 					}}
 				>
-					<Post />
-					<Post />
-					<Post />
+					{data &&
+						data.map(item => {
+							return <Post key={item.id} {...item} />;
+						})}
 				</Box>
 			</PageContainer>
 		</>
