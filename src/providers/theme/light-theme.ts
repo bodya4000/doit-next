@@ -8,6 +8,7 @@ export const lightTheme = createTheme({
 		// secondary: {},
 		background: {
 			default: colors.white,
+			paper: colors.white,
 		},
 		text: {
 			primary: colors.dark,

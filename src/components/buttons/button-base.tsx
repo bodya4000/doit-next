@@ -9,20 +9,16 @@ const TouchableOpacity = ({ children, sx, ...rest }: Props) => {
 	return (
 		<ButtonBase
 			sx={{
+				minHeight: '32px',
+				minWidth: '32px',
 				display: 'flex',
 				alignItems: 'center',
-				gap: {
-					xs: 1,
-					sm: 1,
-					md: 1,
-				},
-				padding: '4px 8px',
-				borderRadius: '16px',
 				transition: 'opacity 0.2s',
 				opacity: 1,
 				'&:hover': {
 					opacity: 0.7,
 				},
+				padding: '8px 8px',
 				...sx,
 			}}
 			{...rest}

@@ -1,9 +1,14 @@
-import { BaseContainer, PageContainer, Welcome } from '@/components';
+"use client"
+
+import { Header, PageContainer, Welcome } from '@/components';
 
 export default function Home() {
 	return (
-		<PageContainer>
+		<>
+			<Header />
+			<PageContainer>
 				<Welcome />
-		</PageContainer>
+			</PageContainer>
+		</>
 	);
 }
