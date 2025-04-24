@@ -1,7 +1,7 @@
 import { Box, Skeleton } from '@mui/material';
 import { PostCard, PostWrapper, SkeletonAvatar, SkeletonLine } from '.';
 
-export const PostSkeleton = () => {
+const PostSkeleton = () => {
 	return (
 		<PostCard>
 			<PostWrapper>
@@ -28,3 +28,5 @@ export const PostSkeleton = () => {
 		</PostCard>
 	);
 };
+
+export default PostSkeleton;

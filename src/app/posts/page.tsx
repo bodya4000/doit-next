@@ -1,8 +1,7 @@
 'use client';
 
-import { Header, PageContainer, Post } from '@/components';
-import { PostSkeleton } from '@/components/posts/post/post-skeleton';
-import PostSearch from '@/components/posts/PostSearch';
+import { Header, PageContainer, Post, PostSearch, PostSpeedDial } from '@/components';
+import { PostSkeleton } from '@/components/posts/post';
 import { usePosts } from '@/hooks';
 import { Box } from '@mui/material';
 
@@ -14,6 +13,7 @@ export default function Posts() {
 			<Header />
 			<PageContainer>
 				<PostSearch />
+				<PostSpeedDial />
 				<Box
 					sx={{
 						display: 'flex',
