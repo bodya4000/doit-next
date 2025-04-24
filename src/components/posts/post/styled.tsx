@@ -1,21 +1,14 @@
 import { colors as appColors } from '@/providers/theme/colors';
-import { Box, colors, Typography } from '@mui/material';
+import { Box, colors, Grid, Skeleton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const PostCard = styled(Box)(({ theme }) => ({
-	flex: '0 0 100%',
+export const PostCard = styled(Grid)(({}) => ({
 	padding: 8,
 	boxSizing: 'border-box',
 	display: 'flex',
 	justifyContent: 'center',
-
-	[theme.breakpoints.up(650)]: {
-		flex: '0 0 50%',
-	},
-	[theme.breakpoints.up(970)]: {
-		flex: '0 0 33.33%',
-		padding: 8,
-	},
+	minHeight: 300,
+	minWidth: 424,
 }));
 
 export const PostWrapper = styled(Box)(({ theme }) => ({
@@ -77,11 +70,26 @@ export const PostTitle = styled(Box)(({ theme }) => ({
 }));
 
 export const PostText = styled(Typography)(({ theme }) => ({
-	flex:1,
+	flex: 1,
 	fontSize: '0.875rem',
 	lineHeight: 1.6,
 	color: theme.palette.text.primary,
 	[theme.breakpoints.down('sm')]: {
 		fontSize: '0.8rem',
 	},
+}));
+
+export const SkeletonAvatar = styled(Skeleton)(({ theme }) => ({
+	width: 72,
+	height: 72,
+	borderRadius: '50%',
+
+	[theme.breakpoints.down('sm')]: {
+		width: 60,
+		height: 60,
+	},
+}));
+
+export const SkeletonLine = styled(Skeleton)(({ theme }) => ({
+	borderRadius: theme.spacing(1),
 }));

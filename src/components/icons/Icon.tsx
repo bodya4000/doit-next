@@ -5,6 +5,7 @@ import Delete from '@mui/icons-material/Delete';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import Home from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import { SvgIconProps } from '@mui/material';
@@ -18,7 +19,8 @@ export type IconName =
 	| 'list'
 	| 'plus'
 	| 'delete'
-	| 'arrow-right';
+	| 'arrow-right'
+	| 'search';
 
 const iconMap: Record<IconName, (props: SvgIconProps) => JSX.Element> = {
 	menu: props => <MenuIcon {...props} />,
@@ -28,6 +30,7 @@ const iconMap: Record<IconName, (props: SvgIconProps) => JSX.Element> = {
 	list: props => <FormatListBulletedIcon {...props} />,
 	plus: props => <AddIcon {...props} />,
 	delete: props => <Delete {...props} />,
+	search: props => <SearchIcon {...props} />,
 	'arrow-right': props => <ArrowRight {...props} />,
 };
 

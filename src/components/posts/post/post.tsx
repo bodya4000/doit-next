@@ -3,6 +3,7 @@
 import { TouchableOpacity } from '@/components/buttons';
 import { BinIcon, Icon } from '@/components/icons';
 import { Box, useTheme } from '@mui/material';
+import { memo } from 'react';
 import { PostAvatar, PostCard, PostHeader, PostText, PostTitle, PostWrapper } from '.';
 
 interface Props {
@@ -46,4 +47,4 @@ const Post = ({ title, body }: Props) => {
 	);
 };
 
-export default Post;
+export default memo(Post);
