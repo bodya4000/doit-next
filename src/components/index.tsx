@@ -6,3 +6,4 @@ export * from './icons';
 
 export * from './home';
 export * from './posts';
+export * from './create';

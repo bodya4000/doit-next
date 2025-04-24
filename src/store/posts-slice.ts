@@ -8,7 +8,7 @@ const initialState: PostsState = {
 	searchText: '',
 };
 
-export const navigationSlice = createSlice({
+export const postSlice = createSlice({
 	name: 'posts',
 	initialState,
 	reducers: {
@@ -18,6 +18,6 @@ export const navigationSlice = createSlice({
 	},
 });
 
-export const { setSearchText } = navigationSlice.actions;
+export const { setSearchText } = postSlice.actions;
 
-export default navigationSlice.reducer;
+export default postSlice.reducer;

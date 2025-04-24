@@ -11,7 +11,7 @@ const initialState: CommentsState = {
 	isCommentsModalOpen: false,
 };
 
-export const navigationSlice = createSlice({
+export const commentsSlice = createSlice({
 	name: 'comments',
 	initialState,
 	reducers: {
@@ -31,6 +31,6 @@ export const navigationSlice = createSlice({
 });
 
 export const { addToComments, removeFromComments, openCommentsModal, closeCommentsModal } =
-	navigationSlice.actions;
+	commentsSlice.actions;
 
-export default navigationSlice.reducer;
+export default commentsSlice.reducer;
