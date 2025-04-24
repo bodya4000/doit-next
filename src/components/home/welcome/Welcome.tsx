@@ -10,18 +10,26 @@ const Welcome = () => {
 		<OuterWrapper>
 			<GradientSection>
 				<CenteredContent>
-					<Typography fontWeight={300} align='center' variant='h3'>
+					<Typography
+						fontWeight={300}
+						align='center'
+						sx={{ fontSize: { xs: 20, sm: 28, md: 36, lg: 42 } }}
+					>
 						Ласкаво просимо до DOiT MVP
 					</Typography>
-					<Typography color={theme.palette.text.primary} align='center' variant='body1'>
+					<Typography
+						color={theme.palette.text.primary}
+						align='center'
+						sx={{ fontSize: { xs: 12, sm: 10, md: 10, lg: 15 } }}
+					>
 						Ми працюємо над MVP освітньої платформи. Приєднуйтесь до команди!
 					</Typography>
-
-					<ButtonContainer>
-						<PrimaryButton icon='list' title='ПЕРЕГЛЯНУТИ ПОСТИ' />
-						<PrimaryTransparentButton icon='plus' title='ДОДАТИ ПОСТ' />
-					</ButtonContainer>
 				</CenteredContent>
+
+				<ButtonContainer>
+					<PrimaryButton icon='list' title='ПЕРЕГЛЯНУТИ ПОСТИ' />
+					<PrimaryTransparentButton icon='plus' title='ДОДАТИ ПОСТ' />
+				</ButtonContainer>
 			</GradientSection>
 		</OuterWrapper>
 	);

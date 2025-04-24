@@ -11,6 +11,7 @@ const PrimaryButton = ({ icon, title, sx, ...rest }: Props) => {
 		<TouchableOpacity {...rest}>
 			<Box
 				sx={{
+					flex: 1,
 					display: 'flex',
 					alignItems: 'center',
 					padding: 1,
@@ -20,8 +21,15 @@ const PrimaryButton = ({ icon, title, sx, ...rest }: Props) => {
 					...sx,
 				}}
 			>
-				{icon && <Icon sx={{ color: colors.white, fontSize: '16px'}} name={icon} />}
-				<Typography color={colors.white}>{title}</Typography>
+				{icon && (
+					<Icon
+						sx={{ color: colors.white, fontSize: { xs: '6px', sm: '8px', md: '16px' } }}
+						name={icon}
+					/>
+				)}
+				<Typography color={colors.white} sx={{ fontSize: { xs: '6px', sm: '8px', md: '16px' } }}>
+					{title}
+				</Typography>
 			</Box>
 		</TouchableOpacity>
 	);
