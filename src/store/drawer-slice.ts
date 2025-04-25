@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface NavigationState {
+interface DrawerState {
 	isDrawerOpened: boolean;
 }
 
-const initialState: NavigationState = {
+const initialState: DrawerState = {
 	isDrawerOpened: false,
 };
 
-export const navigationSlice = createSlice({
+export const drawerSlice = createSlice({
 	name: 'drawer',
 	initialState,
 	reducers: {
@@ -21,6 +21,6 @@ export const navigationSlice = createSlice({
 	},
 });
 
-export const { closeDrawer, openDrawer } = navigationSlice.actions;
+export const { closeDrawer, openDrawer } = drawerSlice.actions;
 
-export default navigationSlice.reducer;
+export default drawerSlice.reducer;

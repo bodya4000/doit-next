@@ -2,12 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import appSnackBarReducer from './app-snack-bar-slice';
 import commentsReducer from './comments-slice';
 import createPostReducer from './create-post-slice';
-import navigationReducer from './navigation-slice';
+import drawerReducer from './drawer-slice';
 import postReducer from './posts-slice';
 
 export const store = configureStore({
 	reducer: {
-		navigation: navigationReducer,
+		drawer: drawerReducer,
 		post: postReducer,
 		comments: commentsReducer,
 		createPost: createPostReducer,

@@ -4,7 +4,7 @@ import { Theme } from '@/enums';
 import { useAppSelector } from '@/hooks';
 import { useThemeMode } from '@/providers';
 import { colors } from '@/providers/theme';
-import { closeDrawer, openDrawer } from '@/store/navigation-slice';
+import { closeDrawer, openDrawer } from '@/store/drawer-slice';
 import { Box, useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { CommentButton, SideDrawer } from '.';
@@ -18,7 +18,7 @@ interface Props {
 
 const Header = ({ title, comments }: Props) => {
 	const dispatch = useDispatch();
-	const isDrawerOpened = useAppSelector(state => state.navigation.isDrawerOpened);
+	const isDrawerOpened = useAppSelector(state => state.drawer.isDrawerOpened);
 	const theme = useTheme();
 	const { mode, setMode } = useThemeMode();
 
