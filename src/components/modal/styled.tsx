@@ -29,3 +29,10 @@ export const ModalBody = styled(Box)(({}) => ({
 	gap: 20,
 	py: 20,
 }));
+
+export const ModalFooter = styled(Box)(({}) => ({
+	display: 'flex',
+	flexDirection: 'row',
+	gap: 20,
+	py: 20,
+}));
