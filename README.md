@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Post Manager App
 
-## Getting Started
+This is a small Next.js application for managing posts. You can:
 
-First, run the development server:
+- View all posts
+- View a single post
+- Create a new post
+- Search posts by text
+
+---
+
+## 🚀 Getting Started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+---
+
+src/
+├── app/            # Next.js routes and pages
+├── assets/         # Images and icons
+├── components/     # Reusable UI components
+├── enums/          # Static enum values (e.g., message types)
+├── hooks/          # Custom React hooks
+├── libs/           # Utility functions (e.g., debounce)
+├── providers/      # Context providers, themes, etc.
+├── services/       # API logic (e.g., fetch posts)
+├── store/          # Redux slices and state
+├── types/          # Global TypeScript types
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📸 Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Home
+![Home](public/screenshots/home_light.png)
+![Hom](public/screenshots/home_dark.png)
 
-## Learn More
+### Posts
+![Post](public/screenshots/posts_light.png)
+![Post](public/screenshots/posts_dark.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Posts/[id]
+![Posts/[id]](public/screenshots/detailed_light.png)
+![Posts/[id]](public/screenshots/detailed_dark.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Create
+![Create](public/screenshots/create_light.png)
+![Create](public/screenshots/create_dark.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
