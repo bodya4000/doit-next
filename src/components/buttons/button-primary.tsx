@@ -4,9 +4,10 @@ import { Icon, IconName, TouchableOpacity } from '..';
 
 interface Props extends ButtonProps {
 	icon?: IconName;
+	iconAtLeft?: boolean;
 }
 
-const PrimaryButton = ({ icon, title, sx, ...rest }: Props) => {
+const PrimaryButton = ({ icon, title, sx, iconAtLeft = true, ...rest }: Props) => {
 	return (
 		<TouchableOpacity {...rest}>
 			<Box
@@ -21,7 +22,7 @@ const PrimaryButton = ({ icon, title, sx, ...rest }: Props) => {
 					...sx,
 				}}
 			>
-				{icon && (
+				{icon && iconAtLeft && (
 					<Icon
 						sx={{ color: colors.white, fontSize: { xs: '6px', sm: '8px', md: '16px' } }}
 						name={icon}
@@ -30,6 +31,13 @@ const PrimaryButton = ({ icon, title, sx, ...rest }: Props) => {
 				<Typography color={colors.white} sx={{ fontSize: { xs: '6px', sm: '8px', md: '16px' } }}>
 					{title}
 				</Typography>
+
+				{icon && !iconAtLeft && (
+					<Icon
+						sx={{ color: colors.white, fontSize: { xs: '6px', sm: '8px', md: '16px' } }}
+						name={icon}
+					/>
+				)}
 			</Box>
 		</TouchableOpacity>
 	);

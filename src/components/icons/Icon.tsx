@@ -8,6 +8,7 @@ import Home from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import SettingsIcon from '@mui/icons-material/Settings';
+import SaveIcon from '@mui/icons-material/Save';
 
 import { SvgIconProps } from '@mui/material';
 import { JSX } from 'react';
@@ -22,7 +23,8 @@ export type IconName =
 	| 'delete'
 	| 'arrow-right'
 	| 'search'
-	| 'chat';
+	| 'chat'
+	| 'save';
 
 const iconMap: Record<IconName, (props: SvgIconProps) => JSX.Element> = {
 	menu: props => <MenuIcon {...props} />,
@@ -34,6 +36,7 @@ const iconMap: Record<IconName, (props: SvgIconProps) => JSX.Element> = {
 	delete: props => <Delete {...props} />,
 	search: props => <SearchIcon {...props} />,
 	chat: props => <ChatIcon {...props} />,
+	save: props => <SaveIcon {...props} />,
 	'arrow-right': props => <ArrowRight {...props} />,
 };
 
