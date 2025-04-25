@@ -1,4 +1,5 @@
 import { PrimaryButton, PrimaryTransparentButton } from '@/components';
+import { showSnackbar } from '@/store/app-snack-bar-slice';
 import { reset } from '@/store/create-post-slice';
 import { Box } from '@mui/material';
 import { useRouter } from 'next/navigation';
@@ -13,14 +14,17 @@ const ResultModalFooter = () => {
 	};
 
 	const onBtnClick = () => {
+		dispatch(showSnackbar({ message: 'Збережено !' }));
 		onClose();
 		route.replace('/posts');
 	};
 	return (
-		<Box sx={{ display:'flex', flexDirection: 'row', justifyContent: 'flex-end', flex:1}}>
-			<PrimaryTransparentButton onClick={onBtnClick} title='Редагувати' />
-			<PrimaryButton onClick={onBtnClick} title='Зберегти' />
-		</Box>
+		<>
+			<Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', flex: 1 }}>
+				<PrimaryTransparentButton disabled={true} title='Редагувати' />
+				<PrimaryButton onClick={onBtnClick} title='Підтвердити' />
+			</Box>
+		</>
 	);
 };
 
