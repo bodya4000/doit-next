@@ -9,7 +9,13 @@ This is a small Next.js application for managing posts. You can:
 
 ---
 
-## 🚀 Getting Started
+### ⚙️ Environment Variables
+
+You need to create a .env.local file in the root of the project with the following content:
+
+- NEXT_PUBLIC_API_URL=https://jsonplaceholder.typicode.com
+
+### 🚀 Getting Started
 
 ```bash
 npm install
@@ -31,22 +37,24 @@ src/
 
 ```
 
+### 📸 Screenshots
 
-## 📸 Screenshots
+#### Home
 
-### Home
 ![Home](public/screenshots/home_light.png)
 ![Hom](public/screenshots/home_dark.png)
 
-### Posts
+#### Posts
+
 ![Post](public/screenshots/posts_light.png)
 ![Post](public/screenshots/posts_dark.png)
 
-### Posts/[id]
+#### Posts/[id]
+
 ![Posts/[id]](public/screenshots/detailed_light.png)
 ![Posts/[id]](public/screenshots/detailed_dark.png)
 
-### Create
+#### Create
+
 ![Create](public/screenshots/create_light.png)
 ![Create](public/screenshots/create_dark.png)
-
