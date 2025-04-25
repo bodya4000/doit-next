@@ -27,6 +27,7 @@ export const commentsSlice = createSlice({
 		closeCommentsModal(state) {
 			state.isCommentsModalOpen = false;
 		},
+
 	},
 });
 

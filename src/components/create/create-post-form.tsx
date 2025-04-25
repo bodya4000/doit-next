@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/hooks';
-import { nextStep, prevStep } from '@/store/create-post-slice';
+import { nextStep, openResultModal, prevStep } from '@/store/create-post-slice';
 import { useDispatch } from 'react-redux';
 import { PostBodyField, PostTitleField } from '.';
 import { PrimaryButton, PrimaryTransparentButton } from '../buttons';
@@ -10,7 +10,11 @@ const CreatePostForm = () => {
 	const step = useAppSelector(state => state.createPost.step);
 	const dispatch = useDispatch();
 	const onNextClick = () => {
-		dispatch(nextStep());
+		if (step < 3) {
+			dispatch(nextStep());
+		} else {
+			dispatch(openResultModal());
+		}
 	};
 
 	const onPrevClick = () => {

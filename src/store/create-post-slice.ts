@@ -4,14 +4,14 @@ interface CreatePostState {
 	step: number;
 	title: string;
 	body: string;
-	isCommentsModalOpen: boolean;
+	isResultModalOpen: boolean;
 }
 
 const initialState: CreatePostState = {
 	step: 1,
 	title: '',
 	body: '',
-	isCommentsModalOpen: false,
+	isResultModalOpen: false,
 };
 
 export const createPostSlice = createSlice({
@@ -30,9 +30,23 @@ export const createPostSlice = createSlice({
 		setBody(state, action: PayloadAction<string>) {
 			state.body = action.payload;
 		},
+
+		openResultModal(state) {
+			state.isResultModalOpen = true;
+		},
+		closeResultModal(state) {
+			state.isResultModalOpen = false;
+		},
+		reset(state) {
+			state.body = '';
+			state.title = '';
+			state.step = 1;
+			state.isResultModalOpen = false;
+		},
 	},
 });
 
-export const { nextStep, prevStep, setBody, setTitle } = createPostSlice.actions;
+export const { nextStep, prevStep, setBody, setTitle, openResultModal, closeResultModal ,reset} =
+	createPostSlice.actions;
 
 export default createPostSlice.reducer;

@@ -24,6 +24,7 @@ export const FormView = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.down('sm')]: {
 		padding: theme.spacing(1.5),
 		gap: theme.spacing(1.5),
+		minWidth: 200,
 	},
 }));
 
