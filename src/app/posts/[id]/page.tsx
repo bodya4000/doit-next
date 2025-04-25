@@ -13,7 +13,7 @@ export default function PostPage() {
 	const isCommentsModalOpen = useAppSelector(state => state.comments.isCommentsModalOpen);
 	return (
 		<>
-			<Header comments={true} />
+			<Header title={`Пост #${postId}`} comments={true} />
 			{isCommentsModalOpen && <CommentsModal />}
 			<PageContainer>
 				{isLoading && <CircularProgress />}

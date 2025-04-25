@@ -6,7 +6,7 @@ const Create = () => {
 	const isResultModalOpen = useAppSelector(state => state.createPost.isResultModalOpen);
 	return (
 		<>
-			<Header />
+			<Header title='Cтворити пост' />
 			{isResultModalOpen && <ResultModal />}
 			<PageContainer>
 				<CreatePostForm />

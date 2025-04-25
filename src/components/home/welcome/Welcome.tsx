@@ -3,11 +3,21 @@
 import { PrimaryButton, PrimaryTransparentButton } from '@/components';
 import { useThemeMode } from '@/providers';
 import { Typography, useTheme } from '@mui/material';
+import { useRouter } from 'next/navigation';
 import { ButtonContainer, CenteredContent, GradientSection, OuterWrapper } from '.';
 
 const Welcome = () => {
 	const theme = useTheme();
+	const router = useRouter();
 	const { mode } = useThemeMode();
+
+	const onPostsClick = () => {
+		router.push('/posts');
+	};
+
+	const onCreatePostClick = () => {
+		router.push('/posts/create');
+	};
 	return (
 		<OuterWrapper>
 			<GradientSection mode={mode}>
@@ -30,8 +40,8 @@ const Welcome = () => {
 				</CenteredContent>
 
 				<ButtonContainer>
-					<PrimaryButton icon='list' title='ПЕРЕГЛЯНУТИ ПОСТИ' />
-					<PrimaryTransparentButton icon='plus' title='ДОДАТИ ПОСТ' />
+					<PrimaryButton onClick={onPostsClick} icon='list' title='ПЕРЕГЛЯНУТИ ПОСТИ' />
+					<PrimaryTransparentButton onClick={onCreatePostClick} icon='plus' title='ДОДАТИ ПОСТ' />
 				</ButtonContainer>
 			</GradientSection>
 		</OuterWrapper>

@@ -9,7 +9,7 @@ export default function Posts() {
 
 	return (
 		<>
-			<Header />
+			<Header title='Усі пости' />
 			<PageContainer>
 				<PostSearch />
 				<PostSpeedDial />

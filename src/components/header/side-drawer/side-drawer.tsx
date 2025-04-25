@@ -18,6 +18,10 @@ const SideDrawer = ({ open, onClose }: SideDrawerProps) => {
 	const onPostsClick = () => {
 		router.push('/posts');
 	};
+
+	const onCreateClick = () => {
+		router.push('/posts/create');
+	};
 	return (
 		<aside>
 			<Drawer anchor='left' open={open} onClose={onClose}>
@@ -29,6 +33,7 @@ const SideDrawer = ({ open, onClose }: SideDrawerProps) => {
 				>
 					<DrawerItem onClick={onHomeClick} icon='home' title='Головна' />
 					<DrawerItem onClick={onPostsClick} icon='list' title='Усі Пости' />
+					<DrawerItem onClick={onCreateClick} icon='plus' title='Cтворити Пост' />
 				</Box>
 			</Drawer>
 		</aside>
